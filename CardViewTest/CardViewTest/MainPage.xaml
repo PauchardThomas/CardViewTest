@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="CardViewTest.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:panCardView="clr-namespace:PanCardView;assembly=PanCardView"
+             mc:Ignorable="d">
+
+    <StackLayout>
+        <Label BackgroundColor="Red" FontSize="Large" HeightRequest="50" Text="{Binding Items.Name}" TextColor="White" />
+        <Button BackgroundColor="Orange" Command="{Binding ChangeItemsCommand}" CornerRadius="20" Text="Load Items" TextColor="White" />
+        <panCardView:CoverFlowView x:Name="CoverFlowView" HorizontalOptions="FillAndExpand" ItemsSource="{Binding Items.ListItems}" PositionShiftValue="50" SelectedIndex="{Binding Items.CurrentIndex}" VerticalOptions="FillAndExpand">
+            <panCardView:CoverFlowView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout BackgroundColor="{Binding Color}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Label HorizontalOptions="Center" Text="{Binding Name}" TextColor="White" VerticalOptions="Center" />
+                    </StackLayout>
+                </DataTemplate>
+            </panCardView:CoverFlowView.ItemTemplate>
+        </panCardView:CoverFlowView>
+    </StackLayout>
+
+</ContentPage>
